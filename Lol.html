@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Text</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #121212;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .text {
+      font-size: 5rem;
+      font-weight: bold;
+      color: white;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .text::before {
+      content: "Dracula Gay";
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: #ff0055;
+      transform: translate(5px, 5px);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div class="text">Dracula Gay</div>
+</body>
+</html>

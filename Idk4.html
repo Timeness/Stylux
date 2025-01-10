@@ -16,39 +16,47 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
     <style>
+      /* Lock scrolling */
+      html, body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+
       body {
-        background-color: black; /* Upar ka background black */
+        background-color: black;
         color: white;
         height: 100vh;
         display: flex;
-        flex-direction: column; /* Vertical alignment ke liye */
-        justify-content: center; /* Box ko vertical center se thoda start ki taraf */
-        align-items: center; /* Box ko horizontally center */
-        margin: 0;
-        padding-top: 50px; /* Upar se thoda gap dene ke liye */
+        justify-content: center;
+        align-items: center; /* Center vertically */
       }
 
       .box-container {
-        background-color: white; /* Box ke niche ka background white */
+        background-color: white;
         color: black;
-        width: auto; /* Box ki width automatically adjust kare */
+        width: 100%; /* Full width to merge with page sides */
+        max-width: 600px; /* Maximum width for box */
         padding: 20px;
-        height: auto; /* Box height content ke hisaab se */
-        border-radius: 15px 15px 0 0; /* Upar ke corners rounded, niche ke flat */
+        border-radius: 15px; /* Rounded corners */
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         text-align: center;
+      }
+
+      .box-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
       }
     </style>
   </head>
   <body>
     <div class="box-container">
       <h1 class="text-3xl font-bold mb-4">HELLO</h1>
-      <div class="flex items-center justify-center h-full">
-        <div id="qrcode" class="mr-4"></div>
-        <div class="border-l-2 border-gray-300 h-32 mx-4"></div>
-        <p>
-          It's more fun to play from your phone. Scan QR code and start!
-        </p>
+      <div class="box-content">
+        <div id="qrcode"></div>
+        <p>It's more fun to play from your phone. Scan QR code and start!</p>
       </div>
     </div>
     <script>

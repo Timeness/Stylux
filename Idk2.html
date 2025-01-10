@@ -22,24 +22,29 @@
         height: 100vh;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start; /* Box upar shift */
         margin: 0;
+        padding: 20px;
       }
 
       .box-container {
         background-color: white; /* Box ke niche ka background white */
         color: black;
+        width: 100%; /* Box ka width pura page */
+        max-width: 600px; /* Optional: Box ki maximum width */
+        height: calc(100vh - 40px); /* Box height poora page niche tak */
         padding: 20px;
         border-radius: 15px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         text-align: center;
+        margin-top: 10px; /* Thoda gap upar se */
       }
     </style>
   </head>
   <body>
     <div class="box-container">
       <h1 class="text-3xl font-bold mb-4">HELLO</h1>
-      <div class="flex items-center">
+      <div class="flex items-center justify-center h-full">
         <div id="qrcode" class="mr-4"></div>
         <div class="border-l-2 border-gray-300 h-32 mx-4"></div>
         <p>

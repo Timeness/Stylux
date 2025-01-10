@@ -1,77 +1,113 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Your description here">
-    <meta name="keywords" content="keyword1, keyword2, keyword3">
-    <meta name="author" content="Your Name">
-    <meta name="robots" content="index, follow">
-    <meta name="language" content="en">
-    <meta property="og:title" content="Your Page Title">
-    <meta property="og:description" content="Your page description here">
-    <meta property="og:image" content="URL to image">
-    <meta property="og:url" content="Page URL">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
-    <style>
-      body {
-        background-color: black; /* Upar ka background black */
-        color: white;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start; /* Box ko upar le jane ke liye */
-        margin: 0;
-        padding: 20px;
-        overflow: hidden; /* Scroll ko lock karne ke liye */
-      }
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+  <meta content="Your description here" name="description"/>
+  <meta content="keyword1, keyword2, keyword3" name="keywords"/>
+  <meta content="Your Name" name="author"/>
+  <meta content="index, follow" name="robots"/>
+  <meta content="en" name="language"/>
+  <meta content="Your Page Title" property="og:title"/>
+  <meta content="Your page description here" property="og:description"/>
+  <meta content="URL to image" property="og:image"/>
+  <meta content="Page URL" property="og:url"/>
+  <meta content="website" property="og:type"/>
+  <meta content="en_US" property="og:locale"/>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Signika:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+      background-color: black;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+      overflow: hidden;
+      font-family: 'Signika', sans-serif;
+    }
 
+    .box-container {
+      background-color: white;
+      color: black;
+      width: auto;
+      padding: 20px;
+      height: auto;
+      border-radius: 15px 15px 0 0;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .desktop-warning {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .desktop-warning img {
+      width: 100px;
+      height: 100px;
+    }
+
+    @media (min-width: 768px) {
       .box-container {
-        background-color: white; /* Box ke niche ka background white */
-        color: black;
-        width: auto; /* Box ki width phayale jaisi */
-        padding: 20px;
-        height: auto; /* Box ki height content ke mutaabiq rahegi */
-        border-radius: 15px 15px 0 0; /* Upar ke corners rounded, niche ke flat */
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        margin-top: 10px; /* Thoda gap upar se */
+        display: none;
       }
-    </style>
-  </head>
-  <body>
-    <div class="box-container">
-      <h1 class="text-3xl font-bold mb-4">HELLO</h1>
-      <div class="flex items-center justify-center h-full">
-        <div id="qrcode" class="mr-4"></div>
-        <div class="border-l-2 border-gray-300 h-32 mx-4"></div>
-        <p>
-          It's more fun to play from your phone. Scan QR code and start!
-        </p>
-      </div>
-    </div>
-    <script>
-      const qrCode = new QRCodeStyling({
-        width: 128,
-        height: 128,
-        data: "https://telegram.me/Sriyanshi",
-        dotsOptions: {
-          color: "#000",
-          type: "rounded",
-        },
-        backgroundOptions: {
-          color: "#fff",
-        },
-        imageOptions: {
-          crossOrigin: "anonymous",
-          margin: 20,
-        },
-      });
 
-      qrCode.append(document.getElementById("qrcode"));
-    </script>
-  </body>
+      .desktop-warning {
+        display: flex;
+      }
+    }
+  </style>
+ </head>
+ <body>
+  <div class="box-container">
+   <h1 class="text-3xl font-bold mb-4">
+    HELLO
+   </h1>
+   <div class="flex items-center justify-center h-full">
+    <div class="mr-4" id="qrcode">
+    </div>
+    <div class="border-l-2 border-gray-300 h-32 mx-4">
+    </div>
+    <p>
+     It's more fun to play from your phone. Scan QR code and start!
+    </p>
+   </div>
+  </div>
+  <div class="desktop-warning">
+   <img alt="Warning icon with an exclamation mark in the center" src="https://placehold.co/100x100?text=Warning+Icon&amp;bg=ffcc00"/>
+   <p class="text-xl mt-4">
+    Please open this page on your mobile device.
+   </p>
+  </div>
+  <script src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js">
+  </script>
+  <script>
+   const qrCode = new QRCodeStyling({
+      width: 128,
+      height: 128,
+      data: "https://telegram.me/Sriyanshi",
+      dotsOptions: {
+        color: "#000",
+        type: "rounded",
+      },
+      backgroundOptions: {
+        color: "#fff",
+      },
+      imageOptions: {
+        crossOrigin: "anonymous",
+        margin: 20,
+      },
+    });
+
+    qrCode.append(document.getElementById("qrcode"));
+  </script>
+ </body>
 </html>
